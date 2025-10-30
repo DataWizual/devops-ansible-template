@@ -1,3 +1,4 @@
+[![Ansible CI](https://github.com/DataWizual/devops-ansible-template/actions/workflows/ansible-ci.yml/badge.svg)](https://github.com/DataWizual/devops-ansible-template/actions)
 
 # 🚀 DevOps Ansible Template
 
