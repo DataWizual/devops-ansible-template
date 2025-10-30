@@ -37,7 +37,7 @@ cd devops-ansible-template
 
 # Run the playbook
 ansible-playbook playbook.yml
-
+```
 🔧 Configuration
 Edit the variables in group_vars/all.yml before running:
 
