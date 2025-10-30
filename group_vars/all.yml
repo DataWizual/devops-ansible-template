@@ -1,0 +1,4 @@
+project_repo: "https://github.com/DataWizual/dev-environment-setup.git"
+project_dest: "/opt/dev-environment-setup"
+project_branch: "main"
+project_port: 8080

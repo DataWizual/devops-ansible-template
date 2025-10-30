@@ -1,0 +1,7 @@
+- name: Setup DevOps environment locally
+  hosts: local
+  become: true
+  vars_files:
+    - group_vars/all.yml
+  roles:
+    - devops

@@ -1,0 +1,35 @@
+- name: Check if Docker is already installed
+  command: docker --version
+  register: docker_installed
+  ignore_errors: yes
+
+- name: Install Docker if not present
+  apt:
+    name: docker.io
+    state: present
+    update_cache: yes
+  when: docker_installed.rc != 0
+
+- name: Ensure Docker Compose plugin is installed
+  apt:
+    name: docker-compose-plugin
+    state: present
+  when: docker_installed.rc != 0
+
+- name: Ensure Docker service is started
+  service:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Clone DevOps project repo
+  git:
+    repo: "{{ project_repo }}"
+    dest: "{{ project_dest }}"
+    version: "{{ project_branch }}"
+    force: yes
+
+- name: Build and start containers
+  command: docker compose up -d
+  args:
+    chdir: "{{ project_dest }}"
