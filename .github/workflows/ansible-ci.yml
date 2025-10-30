@@ -1,0 +1,25 @@
+name: Ansible CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  ansible-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Ansible and lint tools
+        run: |
+          sudo apt update
+          sudo apt install -y ansible ansible-lint
+
+      - name: Check Ansible syntax
+        run: ansible-playbook --syntax-check playbook.yml
+
+      - name: Lint Ansible playbook
+        run: ansible-lint playbook.yml
