@@ -30,7 +30,7 @@ It’s designed for developers, system administrators, and DevOps engineers who 
 
 ## 🚀 Quick Start
 
-bash
+```bash
 # Clone this repository
 git clone https://github.com/DataWizual/devops-ansible-template.git
 cd devops-ansible-template
